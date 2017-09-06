@@ -2,8 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use backend\models\AdminGroup;
-use backend\models\Admin;
+use backend\models\Admin\AdminGroup;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Cart */

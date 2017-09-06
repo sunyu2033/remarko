@@ -2,9 +2,10 @@
 
 namespace backend\controllers;
 
+use backend\models\Admin\AdminGroup;
+use backend\models\Admin\AdminGroupSearch;
 use Yii;
 use backend\models\Admin\Admin;
-use backend\models\Admin\AdminSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -12,9 +13,9 @@ use common\components\Y;
 use common\components\C;
 
 /**
- * AdminController implements the CRUD actions for Admin model.
+ * AdminGroupController implements the CRUD actions for AdminGroup model.
  */
-class AdminController extends Controller
+class AdminGroupController extends Controller
 {
     /**
      * @inheritdoc
@@ -42,15 +43,8 @@ class AdminController extends Controller
         echo "<br>";
         echo "<br>";
         echo "<br>";
-//        $group = AdminGroup::find()->joinWith('admin')->where(['groupId'=>'24'])->all();
-//
-//        foreach ($group as $adminGroup) {
-//            print_r($adminGroup->name);
-//            echo '<br>';
-//        }
-//        print_r(AdminGroup::getAdminGroups(24));
 
-        $searchModel = new AdminSearch();
+        $searchModel = new AdminGroupSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
 
@@ -62,7 +56,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Displays a single Admin model.
+     * Displays a single AdminGroup model.
      * @param string $id
      * @return mixed
      */
@@ -74,13 +68,13 @@ class AdminController extends Controller
     }
 
     /**
-     * Creates a new Admin model.
+     * Creates a new AdminGroup model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Admin();
+        $model = new AdminGroup();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -92,7 +86,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Updates an existing Admin model.
+     * Updates an existing AdminGroup model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -111,7 +105,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Deletes an existing Admin model.
+     * Deletes an existing AdminGroup model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -124,15 +118,15 @@ class AdminController extends Controller
     }
 
     /**
-     * Finds the Admin model based on its primary key value.
+     * Finds the AdminGroup model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Admin the loaded model
+     * @return AdminGroup the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Admin::findOne($id)) !== null) {
+        if (($model = AdminGroup::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

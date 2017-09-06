@@ -1,9 +1,6 @@
 <?php
 
-namespace backend\models;
-
-use Yii;
-use yii\helpers\ArrayHelper;
+namespace backend\models\Admin;
 
 /**
  * This is the model class for table "sys_admin_group".

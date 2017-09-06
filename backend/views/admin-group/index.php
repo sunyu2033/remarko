@@ -12,7 +12,7 @@ use backend\models\Admin\AdminGroup;
 $this->title = Yii::t('app', 'Admins');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="order-index">
+<div class="admin-group-index">
 
     <?= Html::a(Yii::t('app', 'Create') . Yii::t('app', 'Admin'), ['create'], ['class' => 'btn btn-success']) ?>
 
@@ -21,19 +21,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             'id',
-            'username',
-            [
-                'attribute' => 'groupId',
-                'value' => function ($model) {
-                    return $model->groupId ? AdminGroup::getAdminGroups($model->groupId) : '-';
-                },
-                'filter' => Html::activeDropDownList(
-                    $searchModel,
-                    'groupId',
-                    AdminGroup::getAdminGroups(),
-                    ['class' => 'form-control', 'prompt' => Yii::t('app', 'PROMPT_STATUS')]
-                )
-            ],
             'name',
             'description',
             ['class' => 'yii\grid\ActionColumn'],

@@ -1,7 +1,7 @@
 <?php
 namespace common\models;
 
-use backend\models\Admin;
+use backend\models\Admin\Admin;
 use common\models\User;
 use Yii;
 use yii\base\Model;

@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\models;
+namespace backend\models\Admin;
 
 use phpDocumentor\Reflection\Types\Static_;
 use Yii;
